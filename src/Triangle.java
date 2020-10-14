@@ -1,56 +1,36 @@
-public class Triangle implements FigureGeometrique {
-    private Point point1;
-    private Point point2;
-    private Point point3;
+public class Triangle implements Drawable,Moveable {
+    private Segment segment1;
+    private Segment segment2;
+    private Segment segment3;
     private int color;
     public Triangle(Point point1,Point point2,Point point3,int color){
         this.color = color;
-        this.point1 = point1;
-        this.point2 = point2;
-        this.point3 = point3;
+        this.segment1 = new Segment(point1,point2,color);
+        this.segment2 = new Segment(point2,point3,color);
+        this.segment3 = new Segment(point3,point1,color);
     }
-
+    @Override
     public void setColor(int color) {
         this.color = color;
     }
-
-    public void setPoint1(Point point1) {
-        this.point1 = point1;
-    }
-
-    public void setPoint2(Point point2) {
-        this.point2 = point2;
-    }
-
+    @Override
     public int getColor() {
         return color;
     }
 
-    public Point getPoint1() {
-        return point1;
+    @Override
+    public void draw() {
+
     }
 
-    public Point getPoint2() {
-        return point2;
-    }
 
-    public Point getPoint3() {
-        return point3;
-    }
 
-    public void setPoint3(Point point3) {
-        this.point3 = point3;
-    }
+
 
     @Override
-    public void Dessigner() {
-        // Methode li ka dessigner
-    }
-
-    @Override
-    public void Deplasser(int x,int y) {
-        point1.Deplacer(x,y);
-        point2.Deplacer(x,y);
-        point3.Deplacer(x,y);
+    public void translate(int dx, int dy) {
+        segment1.translate(dx,dy);
+        segment2.translate(dx,dy);
+        segment3.translate(dx,dy);
     }
 }

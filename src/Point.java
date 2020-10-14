@@ -1,4 +1,4 @@
-public class Point {
+public class Point implements Moveable{
     private float x;
     private float y;
     //L constructeur utilise vraisemblablement(Itle9ha 3lina gha howa b francais dyaloo)
@@ -28,9 +28,10 @@ public class Point {
         return "("+x+","+y+")";
     }
     //Had l methode dyal deplacement
-    public void Deplacer(int x,int y){
-        this.x +=x;
-        this.y +=y;
-    }
 
+    @Override
+    public void translate(int dx, int dy) {
+        this.x +=dx;
+        this.y +=dy;
+    }
 }
